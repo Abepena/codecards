@@ -1,0 +1,45 @@
+{% load static %}
+{% load widget_tweaks %}
+{% load form_tags %}
+
+
+
+{% if form.non_field_errors %} <!--For LoginView errors-->
+    <div class="alert alert-danger"> 
+        {% for error in form.non_field_errors %}
+        <p {% if forloop.last %}class="mb-0"{% endif %}>
+            {{ error }}
+        </p>  
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!-- Rendering the form field if context has a `form`-->
+{% for field in form %}
+<div class="form-group">
+    {{ field.label_tag }}
+    
+    
+    <!--https://github.com/simhnna/django-widgets-improved for documentation on how this works-->
+    <!-- Input class is in decks/templatetags -->
+    {% render_field field class=field|input_class%}
+    
+    {% for error in field.errors %}
+        <div class="invalid-feedback">
+            {{ error }}
+        </div>
+    {% endfor %}
+
+    <!--Help Text Styling-->
+    {% if field.help_text %}
+        <small class="form-text text-muted">
+            {{ field.help_text }}
+        </small>
+    {% endif %}
+        
+        
+</div>
+{% endfor %}
+    
+    
+    

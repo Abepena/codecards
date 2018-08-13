@@ -1,0 +1,51 @@
+html{
+    box-sizing: border-box;
+}
+
+body
+*:before,
+*:after {
+    box-sizing: inherit;
+    background: #f0f0f0;
+}
+
+section{
+    height: 100vh;
+
+}
+
+.brand{
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 4em;
+    color:#FFFFFF;
+}
+
+.brand-dark{
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 4em;
+    color:#FFFFFF;
+}
+.hero {
+    background: #095c75;
+    height: 80vh;
+}
+
+.btn-wide {
+    width: 8rem;
+}
+
+
+.features{
+    margin: 4em 0;
+}
+
+.feature{
+    font-family: "Open Sans", sans-serif;
+    margin: 2em 0;
+}
+
+.feature-img {
+    width: 100px;
+}
+
+
