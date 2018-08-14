@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'decouple',
+    'livereload',
     'decks',
     'accounts',
 ]
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'codecards.urls'
@@ -82,12 +83,12 @@ WSGI_APPLICATION = 'codecards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': ,
+        'ENGINE': config('DB_ENGINE'),
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD':config('DB_PASSWORD'),
-        'HOST': config('DB_HOST')
-        'PORT':config('DB_PORT')
+        'HOST': config('DB_HOST'),
+        'PORT':config('DB_PORT'),
     }
 }
 
@@ -134,3 +135,5 @@ STATICFILES_DIRS = [
 ]
 
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'landing'

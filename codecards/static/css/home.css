@@ -1,51 +1,57 @@
-html{
-    box-sizing: border-box;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-body
-*:before,
-*:after {
-    box-sizing: inherit;
-    background: #f0f0f0;
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: 'Montserrat', cursive;
 }
 
-section{
-    height: 100vh;
-
+body {
+  background: url(../img/random_grey_variations/random_grey_variations.png);
 }
 
-.brand{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#FFFFFF;
+.navbar-brand {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1.5em;
 }
 
-.brand-dark{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#FFFFFF;
-}
-.hero {
-    background: #095c75;
-    height: 80vh;
-}
-
-.btn-wide {
-    width: 8rem;
+.profile {
+  display: -ms-grid;
+  display: grid;
+  margin: 0 auto;
+  padding: 2.5em;
+      grid-template-areas: "hero   hero decks decks decks" "categ categ decks decks decks" "categ categ decks decks decks";
+  height: 90vh;
+  grid-gap: 1.5em;
+  max-width: 1000px;
 }
 
-
-.features{
-    margin: 4em 0;
+.p-hero {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: hero;
 }
 
-.feature{
-    font-family: "Open Sans", sans-serif;
-    margin: 2em 0;
+.hero-image {
+  max-width: 200px;
 }
 
-.feature-img {
-    width: 100px;
+.p-decks {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-area: decks;
 }
 
-
+.p-categories {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: categ;
+}
+/*# sourceMappingURL=home.css.map */

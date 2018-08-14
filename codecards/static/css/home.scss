@@ -1,0 +1,55 @@
+$colors:(
+    teal: #1B998B,
+    teal-hover: #167e72,
+    white: #ffffff,
+    green: #71C695,
+    blue-gray: #485160,
+    gray: #9CA7AA
+);
+
+*{
+    box-sizing: border-box;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Montserrat', cursive;
+}
+body {
+    background: url(../img/random_grey_variations/random_grey_variations.png);
+}
+.navbar-brand {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size:1.5em;
+}
+
+.profile {
+    display: grid;
+    margin:0 auto;
+    padding:2.5em;
+    grid-template-areas:
+        "hero   hero decks decks decks"
+        "categ categ decks decks decks"
+        "categ categ decks decks decks";
+    height:90vh;
+    grid-gap: 1.5em;
+    max-width: 1000px;
+}
+
+.p-hero{
+    grid-area: hero;
+    
+}
+
+.hero-image{
+    max-width: 200px;
+}
+
+.p-decks {
+    grid-area: decks;
+}
+
+.p-categories{
+    grid-area: categ;
+}
+
