@@ -24,19 +24,29 @@
                 </div>
                 <div class=" row my-3 p-categ card shadow mx-1">
                     <h2 class="mt-2 text-center">
-                        Deck Categories
+                        Categories
                     </h2>
-                    <ul class="categ-list">
-                        <li>
-                            <a href="#">one</a>
-                        </li>
-                        <li>
-                            <a href="#">two</a>
-                        </li>
-                        <li>
-                            <a href="#">three</a>
-                        </li>
-                    </ul>
+                    <div class="container">
+                        <table class="table">
+                            <thead  class="thead bg-success text-white">
+                                <tr>
+                                    <th class="">Subject</th>
+                                    <th class="">Deck</th>
+                                    <th class="">Cards</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="">
+                                        Computer Science
+                                        <small class="text-muted">updated: 2 days ago</small>
+                                    </td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">102</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
@@ -45,8 +55,11 @@
                     <div class="container decklist">
                         <div class="row d-flex mx-auto justify-content-center">
                                 <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
+                                    <div class="card-header text-center bg-success text-white">
                                         Python
+                                    </div>
+                                    <div class="card-body text-center">
+                                        Cards: 10
                                     </div>
                                 </a>
                                 <a href="#" class="card box rounded">

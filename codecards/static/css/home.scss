@@ -51,15 +51,24 @@ body{
 
         .p-categ{
 
+            .categ-list{
+                list-style: none;
+            }
+
         }
 
         .p-decks{
+
+            a {
+                text-decoration: none;
+            }
             
             .box{
                 height: 140px;
                 width: 250px;
                 margin: .5em;
                 position: relative;
+                color:color(text);
                 
                 @media (min-width: 476px) {
                     width: 180px;
