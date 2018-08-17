@@ -1,31 +1,29 @@
  {% extends 'accounts/base.html' %}
  
  {% block body %}
- <div class="centered-form">
-     <div class="container">
-         <h1 class="text-center brand">Codecards</h1>
-         <div class="row justify-content-center">
-             <div class="col-lg-6 col-md-8 col-sm-10">
-                 <div class="card">
-                     <div class="card-body">
-                         <form method="POST" action="" novalidate>
-                             {% csrf_token %}
-                             {% include "includes/form.html" %}
-                             <input class="btn btn-success btn-block"type="submit" value="Sign Up">    
-                        </form>
-                     </div>
-                     <div class="card-footer text-center text-muted">
-                         <small>
-                             Already have an account?
-                             <a href="{% url 'accounts:login' %}">Login</a> <br>
-                             Forgot your password?
-                                <a href="#">Reset Password</a>
-                         </small>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
+<div class="container">
+    <h1 class="text-center brand">Codecards</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="" novalidate>
+                        {% csrf_token %}
+                        {% include "includes/form.html" %}
+                        <input class="btn btn-success btn-block"type="submit" value="Sign Up">    
+                </form>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    <small>
+                        Already have an account?
+                        <a href="{% url 'accounts:login' %}">Login</a> <br>
+                        Forgot your password?
+                        <a href="#">Reset Password</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
  {% endblock  %}
      

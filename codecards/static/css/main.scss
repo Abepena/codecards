@@ -1,69 +1,80 @@
-:root{
-    font-size: 18px;
-    margin:0;
-    padding:0;
-}
+$colors:(
+    teal: #1B998B,
+    teal-hover: #167e72,
+    white: #ffffff,
+    green: #71C695,
+    blue-gray: #485160,
+    gray: #9CA7AA,
+    text: #495057,
+);
 
-html{
+@function color($color-name){
+    @return map-get($colors, $color-name)
+};
+
+*{
     box-sizing: border-box;
 }
 
-body
-*:before,
-*:after {
-    box-sizing: inherit;
-    background: #f0f0f0;
+body, html{
+    height: 100%;
+    margin:0;
+    padding: 0; 
+    box-sizing: border-box;
 }
 
-
-.hero {
+body{
+    font-family: 'Montserrat', cursive;
     background: url(../img/random_grey_variations/random_grey_variations.png);
-    height: 100vh;
-    clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
+    
+    .navbar-brand {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size:1.5em;
+    }
+
+    .profile{
+
+        .p-hero{
+
+            .hero-image{
+                border: 1px solid color(gray);
+                max-width: 150px;
+
+            }
+        }
+
+        .p-categ{
+
+            .categ-list{
+                list-style: none;
+            }
+
+        }
+
+        .p-decks{
+
+            a {
+                text-decoration: none;
+            }
+            
+            .box{
+                height: 140px;
+                width: 250px;
+                margin: .5em;
+                position: relative;
+                color:color(text);
+                
+                @media (min-width: 476px) {
+                    width: 180px;
+                }
+            }
+        }
+    }
 }
 
-.hero-box {
-    margin-top: 30vh;
-}
 
 
-.hero-p{
-    font-family: 'Gloria Hallelujah', cursive;
-    color: #FFFFFF
-}
-
-.brand{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#FFFFFF;
-}
-
-.brand-dark{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#0f0f0f;
-}
-
-.logo {
-    font-family: 'Gloria Hallelujah', cursive;
-
-}
-.btn-wide {
-    width: 8rem;
-}
 
 
-.features{
-    margin: 4em 0;
-}
-
-.feature{
-    font-family: "Open Sans", sans-serif;
-    margin: 2em 0;
-}
-
-.feature-img {
-    width: 100px;
-}
 
 

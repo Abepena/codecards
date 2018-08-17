@@ -11,7 +11,14 @@
             crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
         <link href="https://fonts.googleapis.com/css?family=Caveat|Gloria+Hallelujah|Pacifico|Montserrat|Open+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/main.css' %}"> {% block stylesheets %} {% endblock %}
+        
+        {% if user.is_authenticated %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+        {% else %}
+        <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+        {% endif %}
+            
+        {% block stylesheets %} {% endblock %}
     </head>
 
     <body>
@@ -38,9 +45,70 @@
                     </div>
             </div>
         </nav>
-        {% endif %}
         {% block content %}  
         {% endblock content %}
+        {% else %}
+        <div class="container-fluid hero d-flex justify-content-center">
+                <div class="mw-50 mw-md-40 hero-box">
+                    <h1 class="brand">Codecards</h1>
+                    <p class="lead hero-p">Simple flashcards for saving code</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="{% url 'accounts:login' %}" class="btn btn-success btn-wide">Login</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="btn btn-outline-light btn-wide">Signup</a>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row features">
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/cards-stack.svg' %}" alt="cards-stack">
+                        <h5>Simple Cards</h5>
+                    </div>
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/curly-brackets.svg' %}" alt="curly-brackets">
+                        <h5>Syntax Higlighting</h5>
+                    </div>
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/coding.svg' %}" alt="code">
+                        <h5>Code or General</h5>
+                    </div>
+                </div>
+            </div>
+                <div class="mw-50 mw-md-40 hero-box">
+                    <h1 class="brand">Codecards</h1>
+                    <p class="lead hero-p">Simple flashcards for saving code</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="{% url 'accounts:login' %}" class="btn btn-success btn-wide">Login</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="btn btn-outline-light btn-wide">Signup</a>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row features">
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/cards-stack.svg' %}" alt="cards-stack">
+                        <h5>Simple Cards</h5>
+                    </div>
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/curly-brackets.svg' %}" alt="curly-brackets">
+                        <h5>Syntax Higlighting</h5>
+                    </div>
+                    <div class="col-sm-4 feature text-center">
+                        <img class="feature-img mb-4" src="{% static 'img/coding.svg' %}" alt="code">
+                        <h5>Code or General</h5>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
     {% endblock body %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

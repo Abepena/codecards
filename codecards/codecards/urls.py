@@ -18,8 +18,8 @@ from django.urls import path, include
 from decks import views
 
 urlpatterns = [
-    path('', views.landing, name='landing'),
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('categories/', views.CategoryListView.as_view(), name="categories")
 ]

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 # Create your models here.
 class Category(models.Model):
@@ -11,8 +11,18 @@ class Category(models.Model):
     description = models.CharField(max_length=200)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='categories' )
 
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self): 
+        return reverse('category_detail', kwargs={'pk': self.pk})
+
+    def get_latest_categories(self):
+        pass
 
 class Deck(models.Model):
     name = models.CharField(max_length=50)
@@ -21,6 +31,7 @@ class Deck(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='decks')
 
+    
     def __str__(self):
         return self.name
     
@@ -35,7 +46,6 @@ class Card(models.Model):
     )
 
     card_type = models.PositiveSmallIntegerField(choices=CARD_TYPE_CHOICES, default=TEXT)
-
     front = models.TextField(null=False)
     back = models.TextField(null=False)
     deck = models.ForeignKey(Deck, on_delete=models.CASCADE, related_name='cards')

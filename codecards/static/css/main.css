@@ -1,63 +1,50 @@
-
-html {
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-body
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-  background: #f0f0f0;
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.hero {
+body {
+  font-family: 'Montserrat', cursive;
   background: url(../img/random_grey_variations/random_grey_variations.png);
-  height: 100vh;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
 }
 
-.hero-box {
-  margin-top: 30vh;
-}
-
-.hero-p {
+body .navbar-brand {
   font-family: 'Gloria Hallelujah', cursive;
-  color: #FFFFFF;
+  font-size: 1.5em;
 }
 
-.brand {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 4em;
-  color: #FFFFFF;
+body .profile .p-hero .hero-image {
+  border: 1px solid #9CA7AA;
+  max-width: 150px;
 }
 
-.brand-dark {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 4em;
-  color: #0f0f0f;
+body .profile .p-categ .categ-list {
+  list-style: none;
 }
 
-.logo {
-  font-family: 'Gloria Hallelujah', cursive;
+body .profile .p-decks a {
+  text-decoration: none;
 }
 
-.btn-wide {
-  width: 8rem;
+body .profile .p-decks .box {
+  height: 140px;
+  width: 250px;
+  margin: .5em;
+  position: relative;
+  color: #495057;
 }
 
-.features {
-  margin: 4em 0;
-}
-
-.feature {
-  font-family: "Open Sans", sans-serif;
-  margin: 2em 0;
-}
-
-.feature-img {
-  width: 100px;
+@media (min-width: 476px) {
+  body .profile .p-decks .box {
+    width: 180px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
