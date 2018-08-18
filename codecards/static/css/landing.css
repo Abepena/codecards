@@ -30,12 +30,13 @@ body
 
 .hero-p {
   font-family: 'Gloria Hallelujah', cursive;
+  text-align: center;
   color: #FFFFFF;
 }
 
 .brand {
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 4em;
+  font-size: 3.5;
   color: #FFFFFF;
 }
 
@@ -50,7 +51,8 @@ body
 }
 
 .btn-wide {
-  width: 8rem;
+  width: 100%;
+  max-width: 7em;
 }
 
 .features {
@@ -60,9 +62,13 @@ body
 .feature {
   font-family: "Open Sans", sans-serif;
   margin: 2em 0;
+  padding: 0 2em;
 }
 
 .feature-img {
-  width: 100px;
+  width: 50%;
+  min-width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=landing.css.map */

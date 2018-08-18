@@ -25,85 +25,81 @@
     {% block body %}   
         {% if user.is_authenticated %}
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container">
-                    <a class="navbar-brand" href="{% url 'home'%}">Codecards</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ml-auto">
-                            <a class="nav-item nav-link" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#">
-                            {% if user.first_name %}
-                                {{user.first_name}}
-                            {% else %}
-                             {{ user.username.capitalize }}
-                            {% endif %}
-                            </a>
-                            <a href="#" class="nav-item nav-link"></a>
+                <div class="container">
+                        <a class="navbar-brand" href="{% url 'home'%}">Codecards</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav ml-auto">
+                                <a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" href="{% url 'home' %}">
+                                {% if user.get_short_name %}
+                                    {{ user.user.get_short_name }}
+                                {% else %}
+                                 {{ user.username.capitalize }}
+                                {% endif %}
+                                </a>
+                                <a href="#" class="nav-item nav-link">Decks</a>
+                            </div>
                         </div>
-                    </div>
-            </div>
-        </nav>
+                </div>
+            </nav>
         {% block content %}  
         {% endblock content %}
         {% else %}
         <div class="container-fluid hero d-flex justify-content-center">
-                <div class="mw-50 mw-md-40 hero-box">
-                    <h1 class="brand">Codecards</h1>
-                    <p class="lead hero-p">Simple flashcards for saving code</p>
+                <div class="hero-box">
+                    <div class="row justify-content-center">
+                        <div class="">
+                            <h1 class="brand">Codecards</h1>
+                            <p class="hero-p">Simple Flashcards for Code</p>
+                        </div>
+                        
+                    </div>
                     <div class="row">
                         <div class="col-6">
                             <a href="{% url 'accounts:login' %}" class="btn btn-success btn-wide">Login</a>
                         </div>
                         <div class="col-6">
-                            <a href="#" class="btn btn-outline-light btn-wide">Signup</a>
+                            <a href="{% url 'accounts:signup' %}" class="btn btn-outline-light btn-wide">Signup</a>
                         </div>       
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row features">
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/cards-stack.svg' %}" alt="cards-stack">
-                        <h5>Simple Cards</h5>
-                    </div>
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/curly-brackets.svg' %}" alt="curly-brackets">
-                        <h5>Syntax Higlighting</h5>
-                    </div>
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/coding.svg' %}" alt="code">
-                        <h5>Code or General</h5>
-                    </div>
-                </div>
-            </div>
-                <div class="mw-50 mw-md-40 hero-box">
-                    <h1 class="brand">Codecards</h1>
-                    <p class="lead hero-p">Simple flashcards for saving code</p>
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="{% url 'accounts:login' %}" class="btn btn-success btn-wide">Login</a>
+            <div class="container-fluid features">
+                <div class="row">
+                    <div class="col-md-4 feature">
+                        
+                        <div class="feature-img">
+                            <img class="mb-4 img-fluid" src="{% static 'img/cards-stack.svg' %}" alt="cards-stack">
                         </div>
-                        <div class="col-6">
-                            <a href="#" class="btn btn-outline-light btn-wide">Signup</a>
-                        </div>       
+                        <h5 class=text-center>Simple Cards</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae reiciendis iste molestias harum rem voluptatibus reprehenderit quis corporis nisi dolore.</p>
+                    </div>
+                    <div class="col-md-4 feature">
+                        <div class="feature-img">
+                            <img class="mb-4 img-fluid" src="{% static 'img/curly-brackets.svg' %}" alt="curly-brackets">
+                        </div>
+                        <h5 class=text-center>Syntax Higlighting</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae reiciendis iste molestias harum rem voluptatibus reprehenderit quis corporis nisi dolore.</p>
+                    </div>
+                    <div class="col-md-4 feature">
+                        <div class="feature-img">
+                            <img class="mb-4 img-fluid" src="{% static 'img/coding.svg' %}" alt="code">
+                        </div>
+                        <h5 class=text-center>Code or General</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae reiciendis iste molestias harum rem voluptatibus reprehenderit quis corporis nisi dolore.</p>
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row features">
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/cards-stack.svg' %}" alt="cards-stack">
-                        <h5>Simple Cards</h5>
+            <div class="container-fluid example">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5></h5>
                     </div>
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/curly-brackets.svg' %}" alt="curly-brackets">
-                        <h5>Syntax Higlighting</h5>
-                    </div>
-                    <div class="col-sm-4 feature text-center">
-                        <img class="feature-img mb-4" src="{% static 'img/coding.svg' %}" alt="code">
-                        <h5>Code or General</h5>
+                    <div class="col-md-8">
+
                     </div>
                 </div>
             </div>

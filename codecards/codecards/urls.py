@@ -21,5 +21,4 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('categories/', views.CategoryListView.as_view(), name="categories")
 ]
