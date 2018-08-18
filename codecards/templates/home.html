@@ -1,88 +1,50 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% block stylesheets %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}"> 
-{% endblock %} 
+{% extends "base.html" %} {% load static %}
+
+{% block stylesheets %} {% endblock %} 
+
+
+{% block nav %}
+    
+{% endblock  %}
+    
 
 {% block content %}
-<div class="container">
-    <div class="profile">
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <div class="p-hero row no-gutters card shadow mx-1">
-                    <img class="mx-auto mt-2 rounded-circle hero-image" src="{% static 'img/user.svg' %}" alt="">
-                    <!-- Change later dynamic image with  deafult of a static one-->
-                    <div class="info py-2">
-                        {% if user.first_name and user.last_name %}
-                        <p class="text-center">{{user.first_name}} {{user.last_name}}</p>
-                        {% elif user.first_name%}
-                        <p class="text-center">{{user.first_name}}</p>
-                        {% else %}
-                        <p class="text-center">{{ user.username.capitalize }}</p>
-                        {% endif %}
+<div class="container rounded">
+    <div class="profile shadow">
+        <div class="profile-header rounded-top">
+            <h1 class="username text-white">            
+                <!-- Look for a first name otherwise return username-->
+                {% if user.get_short_name %}
+                    {{ user.get_short_name}}
+                {% else %}
+                    {{user.username.capitalize}}
+                {% endif %}
+            </h1>
+            <img class="profile-img rounded-circle shadow" src="{% static 'img/robot.png'%}" alt="">
+        </div>
+        <div class="profile-decks">
+            <h2 class="recent-decks">
+                Recent Decks
+            </h2>
+            <div class="decklist">
+                
+                {% for deck in decks %}                    
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">{{ deck.name }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center">
+                        Cards: {{ deck.cards.count }}
+                        </p>
+                        <small class="text-muted">
+                        Last Updated: {{ deck.updated_at}}
+                        </small>
                     </div>
                 </div>
-                <div class=" row my-3 p-categ card shadow mx-1">
-                    <h2 class="mt-2 text-center">
-                        Deck Categories
-                    </h2>
-                    <ul class="categ-list">
-                        <li>
-                            <a href="#">one</a>
-                        </li>
-                        <li>
-                            <a href="#">two</a>
-                        </li>
-                        <li>
-                            <a href="#">three</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="p-decks card shadow mx-1">
-                    <h2 class="text-center my-2">My Decks</h2>
-                    <div class="container decklist">
-                        <div class="row d-flex mx-auto justify-content-center">
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                                <a href="#" class="card box rounded">
-                                    <div class="card-body text-center">
-                                        Python
-                                    </div>
-                                </a>
-                        </div>
-                        <div class="row justify-content-center">
-                            <a href="" class="btn btn-success more">More</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                {% endfor %}
         </div>
     </div>
 </div>
+
 {% endblock %}

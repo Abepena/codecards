@@ -1,63 +1,99 @@
-
-html {
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
 }
 
-body
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-  background: #f0f0f0;
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.hero {
+body {
+  font-family: 'Montserrat', cursive;
   background: url(../img/random_grey_variations/random_grey_variations.png);
-  height: 100vh;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
 }
 
-.hero-box {
-  margin-top: 30vh;
-}
-
-.hero-p {
+body .navbar-brand {
   font-family: 'Gloria Hallelujah', cursive;
-  color: #FFFFFF;
+  font-size: 1.5em;
 }
 
-.brand {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 4em;
-  color: #FFFFFF;
+body .profile {
+  margin-bottom: 50px;
+  border-radius: 25px;
 }
 
-.brand-dark {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 4em;
-  color: #0f0f0f;
+body .profile .profile-header {
+  position: relative;
+  min-height: 10em;
+  background: #73c294;
+  margin: 2em 0 0 0;
 }
 
-.logo {
-  font-family: 'Gloria Hallelujah', cursive;
+body .profile .profile-header .profile-img {
+  max-width: 200px;
+  max-height: 200px;
+  position: absolute;
+  bottom: -50%;
+  left: 5%;
 }
 
-.btn-wide {
-  width: 8rem;
+@media screen and (max-width: 1200px) {
+  body .profile .profile-header .profile-img {
+    max-width: 150px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 
-.features {
-  margin: 4em 0;
+body .profile .profile-header .username {
+  position: absolute;
+  top: 50%;
+  left: calc(10% + 175px);
+  z-index: 1;
 }
 
-.feature {
-  font-family: "Open Sans", sans-serif;
-  margin: 2em 0;
+@media screen and (max-width: 1200px) {
+  body .profile .profile-header .username {
+    font-size: 1.8em;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    margin-top: 1em;
+  }
 }
 
-.feature-img {
-  width: 100px;
+body .profile .profile-decks {
+  background: #f1f1f1;
+  padding: 6em 2em;
+}
+
+body .profile .profile-decks h2 {
+  padding: .3em .4em;
+}
+
+body .profile .profile-decks .decklist {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 3em;
+  -ms-grid-columns: (300px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 300px);
+}
+
+@media screen and (max-width: 1200px) {
+  body .profile .profile-decks .decklist {
+    -ms-grid-columns: (minmax(220px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+body .profile .profile-decks .decklist .card-body {
+  min-height: 10em;
 }
 /*# sourceMappingURL=main.css.map */

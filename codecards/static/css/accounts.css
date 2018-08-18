@@ -15,10 +15,3 @@ body {
 .brand a:active {
     text-decoration: none;
 }
-
-.centered-form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
-}

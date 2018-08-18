@@ -1,69 +1,96 @@
-:root{
-    font-size: 18px;
-    margin:0;
-    padding:0;
+$colors:( teal: #1B998B,
+          teal-hover: #167e72, 
+          white: #f1f1f1, 
+          green: rgb(115, 194, 148), 
+          blue-gray: #485160, 
+          gray: #9CA7AA, 
+          text: #495057, );
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
 }
 
-html{
+;
+* {
     box-sizing: border-box;
+    transition: all .8s ease-in-out;
+
 }
 
-body
-*:before,
-*:after {
-    box-sizing: inherit;
-    background: #f0f0f0;
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-
-.hero {
+body {
+    font-family: 'Montserrat', cursive;
     background: url(../img/random_grey_variations/random_grey_variations.png);
-    height: 100vh;
-    clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
-}
+    .navbar-brand {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 1.5em;
+    }
+    .profile{
+        margin-bottom: 50px;
 
-.hero-box {
-    margin-top: 30vh;
-}
+        border-radius: 25px;
+                
+        .profile-header {
+            position: relative;
+            min-height: 10em;
+            background: color(green);
+            margin: 2em 0 0 0;
+            
+            .profile-img{
+                max-width: 200px;
+                max-height: 200px;
+                position: absolute;
+                bottom: -50%;
+                left: 5%;
+                @media screen and (max-width:1200px){
+                    max-width: 150px;
+                    left:50%;
+                    transform: translateX(-50%);
+                }
+            }
+            .username{
+                position: absolute;
+                top: 50%;
+                left: calc(10% + 175px);
+                z-index: 1;
+                @media screen and (max-width: 1200px) {
+                    font-size: 1.8em;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin-top: 1em;
+                }
+            }
+        }
 
+        .profile-decks{
+            background: color(white);
+            padding: 6em 2em;
+            
+            h2{
+                padding: .3em .4em;
+            }
 
-.hero-p{
-    font-family: 'Gloria Hallelujah', cursive;
-    color: #FFFFFF
-}
+            .decklist{
+                display: grid;
+                grid-gap: 3em;
+                grid-template-columns: repeat(auto-fit, 300px);
 
-.brand{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#FFFFFF;
-}
+                
+                @media screen and (max-width:1200px){
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                }
+                    .card-body{
+                        min-height: 10em;
+                    }
+                }
+            }
 
-.brand-dark{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 4em;
-    color:#0f0f0f;
-}
-
-.logo {
-    font-family: 'Gloria Hallelujah', cursive;
-
-}
-.btn-wide {
-    width: 8rem;
-}
-
-
-.features{
-    margin: 4em 0;
-}
-
-.feature{
-    font-family: "Open Sans", sans-serif;
-    margin: 2em 0;
-}
-
-.feature-img {
-    width: 100px;
-}
-
-
+        }
+    }
